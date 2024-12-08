@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>계산기 만들기</title>
+    <script>
+        function calculate(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                try {
+                    const expression = document.getElementById("expression").value;
+                    const result = eval(expression);
+                    document.getElementById("result").innerText = result;
+                } catch (e) {
+                    document.getElementById("result").innerText = "잘못된 수식입니다.";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>계산기 만들기</h1>
+    <p>수식을 입력하고 <Enter>를 입력하세요.</p>
+    <input type="text" id="expression" onkeydown="calculate(event)">
+    <p id="result"></p>
+</body>
+</html>
